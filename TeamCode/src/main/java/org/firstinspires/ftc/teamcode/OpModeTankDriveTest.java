@@ -21,14 +21,19 @@ public class OpModeTankDriveTest extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         telemetry.addData("Status", "Initialized");
         telemetry.update();
+
         left = hardwareMap.dcMotor.get("left");
         right = hardwareMap.dcMotor.get("right");
+
         left.setDirection(DcMotor.Direction.FORWARD);
         right.setDirection(DcMotor.Direction.REVERSE);
+
         waitForStart();
         runtime.reset();
+
         while (opModeIsActive()) {
             telemetry.addData("Status", "Run Time: " + runtime.toString());
+
             left.setPower(0.2*Math.cbrt(gamepad1.left_stick_y));
             right.setPower(0.2*Math.cbrt(gamepad1.right_stick_y));
         }
