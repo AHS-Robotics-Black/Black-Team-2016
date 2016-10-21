@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
  * Created by Benjamin Jensrud on 10/20/2016.
+ * Full tank base (drivable) opmode
  */
 @TeleOp(name = "Double Sprocket Tank Drive Test", group = "Tests")
 public class OpModeTankDoubleSprocketTest extends LinearOpMode {
@@ -37,10 +38,10 @@ public class OpModeTankDoubleSprocketTest extends LinearOpMode {
             telemetry.addData("Status", "Runtime: "+runtime.toString());
             telemetry.update();
 
-            leftFront.setPower(0.2*Math.cbrt(gamepad1.left_stick_y));
-            leftBack.setPower(0.2*Math.cbrt(gamepad1.left_stick_y));
-            rightFront.setPower(0.2*Math.cbrt(gamepad1.right_stick_y));
-            rightBack.setPower(0.2*Math.cbrt(gamepad1.right_stick_y));
+            leftFront.setPower(gamepad1.left_stick_y);
+            leftBack.setPower(gamepad1.left_stick_y);
+            rightFront.setPower(gamepad1.right_stick_y);
+            rightBack.setPower(gamepad1.right_stick_y);
         }
     }
 }
