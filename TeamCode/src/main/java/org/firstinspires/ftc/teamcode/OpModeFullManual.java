@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
  * The final manual control opmode
  */
 
-@TeleOp(name = "Default TeleOp", group = "Competition")
+//@TeleOp(name = "Default TeleOp", group = "Competition")
 public class OpModeFullManual extends OpMode {
 
     //l-left

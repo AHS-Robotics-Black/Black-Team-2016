@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
  * The final autonomous opmode
  */
 
-@Autonomous(name = "Default Autonomous", group = "Competition")
+//@Autonomous(name = "Default Autonomous", group = "Competition")
 public class OpModeFullAutonomous extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
