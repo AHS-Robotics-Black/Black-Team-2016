@@ -27,7 +27,7 @@ public class OpModeQuestionableTest extends LinearOpMode {
         rightBack=hardwareMap.dcMotor.get("rbd");
 
         leftFront.setDirection(DcMotor.Direction.FORWARD);
-        leftBack.setDirection(DcMotorSimple.Direction.FORWARD);
+        leftBack.setDirection(DcMotor.Direction.FORWARD);
         rightFront.setDirection(DcMotor.Direction.REVERSE);
         rightBack.setDirection(DcMotor.Direction.REVERSE);
 
@@ -38,20 +38,10 @@ public class OpModeQuestionableTest extends LinearOpMode {
             telemetry.addData("Status", "Runtime: "+runtime.toString());
             telemetry.update();
 
-            double forward = gamepad1.left_stick_y;
-            double right = gamepad1.left_stick_x;
-            double rotRate = gamepad1.right_stick_x;
-
-            leftFront.setPower(clamp((0.5*(forward+rotRate)),-1,1));
-            leftBack.setPower(clamp((0.5*(-1*right+rotRate)),-1,1));
-            rightFront.setPower(clamp((0.5*(right+rotRate)),-1,1));
-            rightBack.setPower(clamp((0.5*(-1*forward+rotRate)),-1,1));
+            leftFront.setPower((1-0.5*Math.abs(gamepad1.right_stick_y))*gamepad1.left_stick_x);
+            leftBack.setPower((1-0.5*Math.abs(gamepad1.right_stick_y))*gamepad1.left_stick_y);
+            rightFront.setPower((1-0.5*Math.abs(gamepad1.right_stick_y))*gamepad1.left_stick_y);
+            rightBack.setPower((1-0.5*Math.abs(gamepad1.right_stick_y))*gamepad1.left_stick_x);
         }
-    }
-
-    private static double clamp(double val, double min, double max) {
-        if (val<=max&&val>=min) return val;
-        else if (val>max) return max;
-        else return min;
     }
 }

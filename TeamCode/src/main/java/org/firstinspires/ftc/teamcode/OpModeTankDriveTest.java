@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -11,6 +12,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Allows manual control of a tank drive system
  */
 @TeleOp(name = "Tank Drive Test" , group = "Tests")
+@Disabled
 public class OpModeTankDriveTest extends LinearOpMode {
 
     DcMotor left = null;
