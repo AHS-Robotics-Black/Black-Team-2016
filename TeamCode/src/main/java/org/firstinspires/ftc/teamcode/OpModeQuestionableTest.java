@@ -13,7 +13,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 @TeleOp(name = "Death" , group = "Tests")
 public class OpModeQuestionableTest extends LinearOpMode {
 
-    DcMotor leftFront, leftBack, rightFront, rightBack;
+    private DcMotor leftFront, leftBack, rightFront, rightBack;
     private ElapsedTime runtime = new ElapsedTime();
 
     @Override
@@ -38,10 +38,20 @@ public class OpModeQuestionableTest extends LinearOpMode {
             telemetry.addData("Status", "Runtime: "+runtime.toString());
             telemetry.update();
 
-            leftFront.setPower(gamepad1.left_stick_x);
-            leftBack.setPower(gamepad1.left_stick_y);
-            rightFront.setPower(gamepad1.left_stick_y);
-            rightBack.setPower(gamepad1.left_stick_x);
+            double forward = gamepad1.left_stick_y;
+            double right = gamepad1.left_stick_x;
+            double rotRate = gamepad1.right_stick_x;
+
+            leftFront.setPower(clamp((0.5*(forward+rotRate)),-1,1));
+            leftBack.setPower(clamp((0.5*(-1*right+rotRate)),-1,1));
+            rightFront.setPower(clamp((0.5*(right+rotRate)),-1,1));
+            rightBack.setPower(clamp((0.5*(-1*forward+rotRate)),-1,1));
         }
+    }
+
+    private static double clamp(double val, double min, double max) {
+        if (val<=max&&val>=min) return val;
+        else if (val>max) return max;
+        else return min;
     }
 }
