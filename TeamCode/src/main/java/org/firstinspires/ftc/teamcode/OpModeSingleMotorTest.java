@@ -11,23 +11,23 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Allows manual control of a single motor
  */
 
-@TeleOp(name = "Single Motor Test" , group = "Tests")
+@TeleOp(name = "Single Motor Test", group = "Tests")
 @Disabled
-public class OpModeSingleMotorTest extends LinearOpMode{
+public class OpModeSingleMotorTest extends LinearOpMode {
 
-    DcMotor motor = null;
-    private ElapsedTime runtime = new ElapsedTime();
+	DcMotor motor = null;
+	private ElapsedTime runtime = new ElapsedTime();
 
-    @Override
-    public void runOpMode() throws InterruptedException {
-        telemetry.addData("Status", "Initialized");
-        telemetry.update();
-        motor=hardwareMap.dcMotor.get("motor");
-        waitForStart();
-        runtime.reset();
-        while (opModeIsActive()) {
-            telemetry.addData("Status", "Run Time: " + runtime.toString());
-            motor.setPower(gamepad1.left_stick_y);
-        }
-    }
+	@Override
+	public void runOpMode() throws InterruptedException {
+		telemetry.addData("Status", "Initialized");
+		telemetry.update();
+		motor = hardwareMap.dcMotor.get("motor");
+		waitForStart();
+		runtime.reset();
+		while (opModeIsActive()) {
+			telemetry.addData("Status", "Run Time: " + runtime.toString());
+			motor.setPower(gamepad1.left_stick_y);
+		}
+	}
 }
