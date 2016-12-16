@@ -10,16 +10,15 @@ import com.qualcomm.robotcore.hardware.Servo;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by Benjamin Jensrud on 11/10/2016.
- * The final autonomous opmode
+ * Created by Benjamin Jensrud on 12/10/2016.
+ * The final autonomous for the red side
  */
-
-@Autonomous(name = "Default Autonomous - Blue", group = "Competition")
-public class OpModeFullAutonomous extends LinearOpMode {
+@Autonomous(name = "Default Opmode - Red", group = "Competitioin")
+public class OpModeFullAutonomous_Red extends LinearOpMode {
 
 	//True, blue
 	//False, red
-	public static final boolean TEAM = true;
+	public static final boolean TEAM = false;
 	public static final double WHEEL_RADIUS = 1.75;
 	public static final double WHEEL_DEGREES = 54;
 	public static final double INNER_RADIUS = 9.31;
@@ -77,23 +76,24 @@ public class OpModeFullAutonomous extends LinearOpMode {
 		telemetry.addData("Status: ", "Neutral");
 		telemetry.update();
 
-		driveForward(15, 0.17239);
+		driveForward(15);
 		waitForA();
-		turn(nt(45), 0.17239);
-		turn(nt(210), 0.17239);
+		turn(155);
+		//turn(155, 0.17239);
 		waitForA();
-		leftLauncher.setPower(0.25);
-		rightLauncher.setPower(0.25);
+		leftLauncher.setPower(0.22);
+		rightLauncher.setPower(0.22);
 		waitForA();
 		TimeUnit.SECONDS.sleep(2);
-		conveyor.setPower(0.4);
+		conveyor.setPower(0.3);
 		TimeUnit.SECONDS.sleep(5);
 		waitForA();
 		leftLauncher.setPower(0);
 		rightLauncher.setPower(0);
 		conveyor.setPower(0);
-		waitForA();
-		turn(nt(205), 0.17239);
+		driveForward(-38, 0.17239);
+		/*waitForA();
+		turn(180, 0.17239);
 		waitForA();
 		driveForward(33.94, 0.17239);
 		waitForA();
@@ -102,16 +102,17 @@ public class OpModeFullAutonomous extends LinearOpMode {
 		telemetry.update();
 
 		rightPush.setToTop();
+		for (int i=0; i< 10000; i++) { }
 		rightPush.setToBottom();
 
 		waitForA();
 
-		turn(nt(45));
+		turn(315);
 
 		driveForward(10);
 		TimeUnit.SECONDS.sleep(5);
 		driveForward(-8);
-		turn(nt(-45));
+		turn(45);
 		driveForward(15);
 		/*
 		telemetry.addData("Status: ", "Finding line");
@@ -248,14 +249,15 @@ public class OpModeFullAutonomous extends LinearOpMode {
 	}
 
 	private void waitForA() {
-		/*
+/*
 		while (!gamepad1.a) {
 
 		}
 		while (gamepad1.a) {
 
 		}
-		*/
+*/
+
 	}
 
 
