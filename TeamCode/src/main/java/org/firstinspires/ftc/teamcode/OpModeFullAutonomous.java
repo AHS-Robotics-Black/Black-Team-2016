@@ -32,9 +32,9 @@ public class OpModeFullAutonomous extends LinearOpMode {
 	//f-front
 	//b-back
 	DcMotor lfd, lbd, rfd, rbd, conveyor, leftLauncher, rightLauncher;
-	Servo leftPushServo, rightPushServo, frontServo;
+	Servo /*leftPushServo, rightPushServo,*/ frontServo;
 	ColorSensor leftColor, rightColor, bottomColor;
-	PushServoMotor leftPush, rightPush;
+	//PushServoMotor leftPush, rightPush;
 
 	@Override
 	public void runOpMode() throws InterruptedException {
@@ -44,14 +44,14 @@ public class OpModeFullAutonomous extends LinearOpMode {
 		rbd = hardwareMap.dcMotor.get("rbd");
 
 		conveyor = hardwareMap.dcMotor.get("conveyor");
-		leftPushServo = hardwareMap.servo.get("leftpushservo");
-		rightPushServo = hardwareMap.servo.get("rightpushservo");
+		//leftPushServo = hardwareMap.servo.get("leftpushservo");
+		//rightPushServo = hardwareMap.servo.get("rightpushservo");
 		frontServo = hardwareMap.servo.get("frontservo");
 		leftLauncher = hardwareMap.dcMotor.get("leftlauncher");
 		rightLauncher = hardwareMap.dcMotor.get("rightlauncher");
 
-		rightPush = new PushServoMotor(rightPushServo, 0, 0.482);
-		leftPush = new PushServoMotor(leftPushServo, 0.88318, 0.3658);
+		//rightPush = new PushServoMotor(rightPushServo, 0, 0.482);
+		//leftPush = new PushServoMotor(leftPushServo, 0.88318, 0.3658);
 
 		//leftColor = hardwareMap.colorSensor.get("leftcolor");
 		rightColor = hardwareMap.colorSensor.get("rightcolor");
@@ -67,8 +67,8 @@ public class OpModeFullAutonomous extends LinearOpMode {
 
 		leftLauncher.setDirection(DcMotorSimple.Direction.REVERSE);
 
-		leftPush.setToBottom();
-		rightPush.setToBottom();
+		//leftPush.setToBottom();
+		//rightPush.setToBottom();
 		frontServo.setPosition(0.5);
 
 		waitForStart();
@@ -101,8 +101,8 @@ public class OpModeFullAutonomous extends LinearOpMode {
 		telemetry.addData("Status: ", "Pushing ball");
 		telemetry.update();
 
-		rightPush.setToTop();
-		rightPush.setToBottom();
+		//rightPush.setToTop();
+		//rightPush.setToBottom();
 
 		waitForA();
 
