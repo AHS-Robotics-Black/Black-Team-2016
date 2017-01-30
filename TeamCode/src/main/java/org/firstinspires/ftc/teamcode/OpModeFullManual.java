@@ -60,10 +60,10 @@ public class OpModeFullManual extends OpMode {
         //telemetry.addData("Blue: ", ""+rightColor.blue());
         //telemetry.update();
 
-        lfd.setPower((1-0.5*Math.abs(gamepad1.right_stick_y))*gamepad1.left_stick_x+0.5*gamepad1.right_stick_x);
-        lbd.setPower((1-0.5*Math.abs(gamepad1.right_stick_y))*gamepad1.left_stick_y+0.5*gamepad1.right_stick_x);
-        rfd.setPower((1-0.5*Math.abs(gamepad1.right_stick_y))*gamepad1.left_stick_y-0.5*gamepad1.right_stick_x);
-        rbd.setPower((1-0.5*Math.abs(gamepad1.right_stick_y))*gamepad1.left_stick_x-0.5*gamepad1.right_stick_x);
+        lfd.setPower((1-0.5*Math.abs(gamepad1.right_stick_y))*-gamepad1.left_stick_y+0.5*gamepad1.right_stick_x);
+        lbd.setPower((1-0.5*Math.abs(gamepad1.right_stick_y))*-gamepad1.left_stick_x+0.5*gamepad1.right_stick_x);
+        rfd.setPower((1-0.5*Math.abs(gamepad1.right_stick_y))*-gamepad1.left_stick_x-0.5*gamepad1.right_stick_x);
+        rbd.setPower((1-0.5*Math.abs(gamepad1.right_stick_y))*-gamepad1.left_stick_y-0.5*gamepad1.right_stick_x);
 
         if (gamepad2.right_bumper) {
             rightLauncher.setPower(0.2);
@@ -84,7 +84,7 @@ public class OpModeFullManual extends OpMode {
 			drawerSlide.setPower(0);
 		}
 
-		if (gamepad1.a) {
+		if (!gamepad1.a) {
 			capBallServo.setPosition(-1.0);
 		}
 		else {

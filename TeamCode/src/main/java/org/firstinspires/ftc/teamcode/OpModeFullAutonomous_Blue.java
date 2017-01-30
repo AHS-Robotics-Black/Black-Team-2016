@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  */
 
 @Autonomous(name = "Default Autonomous - Blue", group = "Competition")
-public class OpModeFullAutonomous extends LinearOpMode {
+public class OpModeFullAutonomous_Blue extends LinearOpMode {
 
 	//True, blue
 	//False, red
